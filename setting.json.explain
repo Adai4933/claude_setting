@@ -1,0 +1,9 @@
+{
+    "permissions": {
+        "defaultMode": "default", # default → 危险操作一律询问;
+                                  # acceptEdits → 自动批准文件编辑，bash 命令仍需询问;
+                                  # plan → 只读模式，不允许任何修改;
+                                  # dontAsk → 所有未显式允许的操作全部拒绝;
+                                  # bypassPermissions → 批准一切（仅限在容器或 CI 环境里用）
+    }
+}

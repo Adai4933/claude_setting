@@ -1,0 +1,49 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep *)",
+      "Bash(cd:*)",
+      "Bash(find:*)",
+      "Bash(echo *)",
+      "Bash(npx *)",
+      "Bash(npm *)",
+      "Bash(pnpm *)",
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git checkout *)",
+      "Bash(git branch *)",
+      "Bash(git push *)",
+      "Bash(make *)",
+      "Bash(uv *)",
+      "Read",
+      "Grep",
+      "Edit",
+      "MultiEdit"
+    ],
+    "deny": [
+      "Read(.env*)",
+      "Write(.env*)",
+      "Bash(git merge *)",
+      "Write(.github/workflows/*)",
+      "Bash(curl * | sh)",
+      "Bash(wget *)"
+    ],
+    "defaultMode": "acceptEdits"
+  },
+  "model": "opus[1m]",
+  "extraKnownMarketplaces": {
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
+    }
+  },
+  "effortLevel": "high",
+  "enabledPlugins": {
+    "caveman@caveman": true
+  }
+}
