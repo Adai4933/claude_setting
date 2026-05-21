@@ -19,3 +19,5 @@
          1. If there isn't a CHANGELOG.md file, create one. If it has CHANGELOG.md, make sure to update it with the changes you made. The changes should include features and bugfix as release note, db change, architecture change, public method change, file path changes and etc as technical information. If the same or similar changes made in previous log history, mention them all as reference in latest log;
          2. Don't need change log each commit, my change should log each PR, before PR merged, summary changes in log instead of simply add;
          3. Include date for each PR change log.
+      7. Bump up the version number in package.json and pyproject.toml if existed. According to the changes you made. If it's a minor change, bump the patch version. If it's a new feature, bump the minor version. If it's a breaking change, bump the major version. Always follow semantic versioning principles.
+      8. 

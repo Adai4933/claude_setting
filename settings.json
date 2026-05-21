@@ -18,6 +18,8 @@
       "Bash(git push *)",
       "Bash(make *)",
       "Bash(uv *)",
+      "Bash(.venv/bin/*)",
+      "Bash(*/.venv/bin/*)",
       "Read",
       "Grep",
       "Edit",
