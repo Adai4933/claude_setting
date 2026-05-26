@@ -20,7 +20,7 @@
       2. **Reuse existing code first.** New code must match style and be documented. Verify original design fits new purpose; if not, explain why and add new.
       3. **Surgical changes.** Touch only required code. No drive-by refactors, formatting fixes, or style "improvements". Match existing style. Flag unrelated dead code, don't delete it. Remove only orphans YOUR change created.
       4. **Comment each method/class** with its purpose.
-      5. **Async or atomic preferred** If not possible, explain why and mitigate risks.
+      5. **Async or atomic preferred** If not suggest or possible, explain why and mitigate risks.
       6. **Goal-driven execution.** Define success criteria, loop until verified:
          - "Add validation" → write failing tests for invalid input, make pass
          - "Fix bug" → write reproducing test, make pass
