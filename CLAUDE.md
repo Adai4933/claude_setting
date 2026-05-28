@@ -15,6 +15,7 @@
       2. Approved → make change. Rejected → revise plan, wait for approval.
       3. New change request mid-work → restart from plan step.
       4. Questions/discussion → follow Q&A workflow.
+      5. Request conflicts with existing plan → surface conflict, prefer latest prompt, propose resolution, wait for approval.
    2. **Code rules** (when request is code):
       1. **Minimum code only.** No speculative features, single-use abstractions, unrequested flexibility, or impossible-case error handling. 200 lines that could be 50 → rewrite.
       2. **Reuse existing code first.** New code must match style and be documented. Verify original design fits new purpose; if not, explain why and add new.

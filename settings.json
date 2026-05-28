@@ -36,6 +36,12 @@
     "defaultMode": "acceptEdits"
   },
   "model": "opus[1m]",
+  "enabledPlugins": {
+    "caveman@caveman": true,
+    "frontend-design@claude-plugins-official": true,
+    "convex@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true
+  },
   "extraKnownMarketplaces": {
     "caveman": {
       "source": {
@@ -44,8 +50,5 @@
       }
     }
   },
-  "effortLevel": "high",
-  "enabledPlugins": {
-    "caveman@caveman": true
-  }
+  "effortLevel": "high"
 }
