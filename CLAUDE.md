@@ -1,5 +1,6 @@
 # CLAUDE.md
 ## Base workflow
+   1. **Virtual resource first.** When try to run a command, always try to use the virtual environment first. If the command fails, then try to run it in the local environment. This ensures that we are always using the correct dependencies and configurations.
 ### If the request is a question or discussion: 
    1. **Think twice.** Reason before answering.
    2. **Validate with second source.** First answer wrong → correct it, explain why.
