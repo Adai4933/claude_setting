@@ -30,7 +30,7 @@ find "$HOME/.claude/projects" -maxdepth 2 -name "*.jsonl" -mtime -"$DAYS" -not -
   title=$(jq -r 'select(.type=="ai-title") | .aiTitle' "$F" 2>/dev/null | head -1)
   # User-typed messages are string content; arrays are tool results. Lines starting
   # with "<" are command/caveat wrappers, not the user's words.
-  msgs=$(jq -r 'select(.type=="user" and (.message.content|type=="string")) | .message.content' "$F" 2>/dev/null | grep -v '^<' | grep -v '^\s*$' || true)
+  msgs=$(jq -r 'select(.type=="user" and (.message.content|type=="string")) | .message.content' "$F" 2>/dev/null | grep -vE '^\s*<' | grep -v '^\s*$' || true)
   first=$(echo "$msgs" | head -1 | cut -c1-200)
   [ -z "$title" ] && [ -z "$first" ] && continue
   printf '%s\t%s\t%s\t%s\n' "$date" "$proj" "${title:-NO_TITLE}" "$first" >> "$OUTDIR/digest.tsv"
