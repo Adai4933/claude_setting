@@ -18,7 +18,9 @@ projects/
 sessions/
 sessions-env/
 shell-snapshots/
-skills/
+skills/*
+!skills/port-ref/
+!skills/deploy-fix/
 tasks/
 telemetry/
 todos/
