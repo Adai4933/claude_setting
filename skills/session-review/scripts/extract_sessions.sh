@@ -5,7 +5,8 @@
 #   -d DAYS            look-back window in days (default 30)
 #   -p PROJECT_FILTER  case-insensitive substring match on project dir slug (default: all)
 #   -o OUTDIR          workspace dir (default ~/.claude/cache/session-review)
-set -euo pipefail
+# No -e/pipefail: jq|head pipes get SIGPIPE by design on large transcripts (head exits early).
+set -u
 
 DAYS=30
 FILTER=""
