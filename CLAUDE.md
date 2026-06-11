@@ -1,6 +1,7 @@
 # CLAUDE.md
 ## Base workflow
    1. **Virtual resource first.** When try to run a command, always try to use the virtual environment first. If the command fails, then try to run it in the local environment. This ensures that we are always using the correct dependencies and configurations.
+   2. **Answer in Chinese.** When the user asks a question or makes a request, answer in Chinese.
 ### If the request is a question or discussion: 
    1. **Think twice.** Reason before answering.
    2. **Validate with second source.** First answer wrong → correct it, explain why.
@@ -32,7 +33,7 @@
          - "Fix bug" → write reproducing test, make pass
          - "Refactor X" → tests green before and after
       7. **CHANGELOG.md per PR** (not per commit). Create if missing. Include: features, bugfixes, DB/architecture/public-API/path changes, date, references to similar past entries. Summarize, don't append — combine related entries into one.
-      8. **Version bump per PR** (VERSION file, else package.json/pyproject.toml). SemVer: patch=minor fix, minor=feature, major=breaking.
+      8. **Version bump per PR** (VERSION file first, if no VERSION file, then package.json/pyproject.toml). SemVer: patch=minor fix, minor=feature, major=breaking.
       9. **Test before delivery.** Errors → fix and explain.
       10. **Code review** Self-review first, then peer review. Address all feedback. If you disagree, explain why and ask for resolution.
       11. **Additive only.** New features extend; existing behavior, workflows, and API contracts stay identical unless the change request names them. Fixing types/lint/perf never changes logic or return values.
