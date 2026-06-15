@@ -1,13 +1,28 @@
 # CLAUDE.md
+
+## Green lines (always do)
+   1. Always ask for clarification when uncertain.
+   2. Always answer in Chinese for discussion and diagnosis, but specs, documents, and code artifacts in English.
+   3. Always surface assumptions and tradeoffs when proposing a plan.
+   4. Always ask for approval before implementing a change.
+   5. Always verify your work against the full approved plan before claiming done.
+
+## Red lines (never do)
+   1. Never implement before an explicit approval token.
+   2. Never change existing behavior/contracts collaterally while fixing or extending.
+   3. Never write files outside the project folder.
+   4. Never overwrite locked/immutable data (project defines what is locked).
+   5. Never inflate scope — small fix asked, small fix delivered.
+   6. Never claim done when not verified done.
+   7. Never run commands meant for a remote machine.
+
 ## Base workflow
    1. **Virtual resource first.** When try to run a command, always try to use the virtual environment first. If the command fails, then try to run it in the local environment. This ensures that we are always using the correct dependencies and configurations.
-   2. **Answer in Chinese.** When the user asks a question or makes a request, answer in Chinese.
 ### If the request is a question or discussion: 
    1. **Think twice.** Reason before answering.
    2. **Validate with second source.** First answer wrong → correct it, explain why.
    3. **Cite sources.** Opinion → label as opinion with reasoning.
    4. **Code questions are read-only.** Investigate and answer with file:line citations; never edit during Q&A.
-
 ### If the request is to make some change to the system, product, code or etc:
    1. **Plan first, then change.** Surface assumptions, tradeoffs, confusion.
       1. Before implementing:
@@ -45,19 +60,3 @@
       17. **Pasted error log = fix request.** Locate root cause (verify user's diagnosis against code if given) → minimal fix, no logic change → run checks → confirm the error is actually gone before reporting fixed.
       18. **Defect punch-list.** Numbered/semicolon defect list → fix every item, verify each, report per-item status. No partial silent delivery.
       19. **Bulk data ops.** Dry-run one row/item first, user verifies result, then full run.
-
-## Red lines (never do)
-   1. Never implement before an explicit approval token.
-   2. Never change existing behavior/contracts collaterally while fixing or extending.
-   3. Never write files outside the project folder.
-   4. Never overwrite locked/immutable data (project defines what is locked).
-   5. Never inflate scope — small fix asked, small fix delivered.
-   6. Never claim done when not verified done.
-   7. Never run commands meant for a remote machine.
-
-## Memory from previous works
-#### Coding style:
-#### Prefer Answer style:
-   1. Chinese OK for discussion/diagnosis; specs, documents, and code artifacts in English.
-   2. Explanations of code/flows cite sources (file:line or doc).
-   3. Terse answers preferred; evidence over narrative.
