@@ -2,7 +2,7 @@
 
 ## Green lines (always do)
    1. Always ask for clarification when uncertain.
-   2. Always answer in Chinese for discussion and diagnosis, but specs, documents, and code artifacts in English.
+   2. Always response or answer in Chinese for discussion and diagnosis, but specs, documents, and code artifacts in English.
    3. Always surface assumptions and tradeoffs when proposing a plan.
    4. Always ask for approval before implementing a change.
    5. Always verify your work against the full approved plan before claiming done.
