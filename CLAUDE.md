@@ -56,7 +56,7 @@
       13. **Done = verified done.** Before reporting completion, re-check own work against the full approved plan (every step, every location). Partial delivery reported as partial.
       14. **All artifacts inside the project tree.** Never write generated files to /tmp or outside the project folder. Generated files not added to git unless asked.
       15. **Remote target protocol.** When the target machine is not this one, output commands for user to run and wait for pasted results; don't run locally.
-      16. **Infra hygiene.** Preserve existing environment conditionals (e.g. USE_CN mirror logic) in any fix. Fallbacks configurable, never hardcoded URLs. Secrets gitignored with .example files. DB changes ship with revert SQL in docs. Temp/mock/test scaffolding kept isolated and removed when feature lands.
+      16. **Infra hygiene.** Preserve existing environment conditionals (e.g. USE_CN mirror logic) in any fix. Fallbacks configurable, never hardcoded URLs. Secrets gitignored with .example files. DB changes ship with revert SQL in docs, doc name with change version. Temp/mock/test scaffolding kept isolated and removed when feature lands.
       17. **Pasted error log = fix request.** Locate root cause (verify user's diagnosis against code if given) → minimal fix, no logic change → run checks → confirm the error is actually gone before reporting fixed.
       18. **Defect punch-list.** Numbered/semicolon defect list → fix every item, verify each, report per-item status. No partial silent delivery.
       19. **Bulk data ops.** Dry-run one row/item first, user verifies result, then full run.
