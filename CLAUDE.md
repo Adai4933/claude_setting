@@ -43,6 +43,8 @@
       3. **Surgical changes.** Touch only required code. No drive-by refactors, formatting fixes, or style "improvements". Match existing style. Flag unrelated dead code, don't delete it. Remove only orphans YOUR change created.
       4. **Comment each method/class** with its purpose.
       5. **Async or atomic preferred** If not suggest or possible, explain why and mitigate risks.
+      6. **Exception handling** Only handle exceptions you can actually handle. Don't catch and ignore, don't catch and log, don't catch and rethrow. If you can't handle it, let it bubble up.
+      7. **Logging** Log should always add as different levels (debug/info/warn/error) and include context. Don't leave changes without logs to identify execute status. If you can't handle it, let it bubble up.
       6. **Goal-driven execution.** Define success criteria, loop until verified:
          - "Add validation" → write failing tests for invalid input, make pass
          - "Fix bug" → write reproducing test, make pass
