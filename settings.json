@@ -27,9 +27,8 @@
     ],
     "deny": [
       "Read(.env*)",
-      "Write(.env*)",
-      "Bash(git merge *)",
-      "Write(.github/workflows/*)",
+      "Edit(.env*)",
+      "Edit(.github/workflows/*)",
       "Bash(curl * | sh)",
       "Bash(wget *)"
     ],
