@@ -6,6 +6,7 @@
    3. Always surface assumptions and tradeoffs when proposing a plan.
    4. Always ask for approval before implementing a change.
    5. Always verify your work against the full approved plan before claiming done.
+   6. Always cut a feature branch from the freshly fetched remote base, and make it track its own remote branch — never the base: `git fetch origin && git switch -c <branch> --no-track origin/<base>`, then `git push -u origin <branch>:<branch>` on the first push. Never branch off a local `dev`/`main`: those go stale (a local `dev` can sit commits behind its remote while you work). Without `--no-track` the new branch inherits `origin/<base>` as upstream, so `git status` reports ahead/behind against the base and the branch never tracks itself. Verify before the first commit: `git status -sb` and `git config branch.<branch>.merge` must name `refs/heads/<branch>`.
 
 ## Red lines (never do)
    1. Never implement before an explicit approval token.
@@ -15,6 +16,12 @@
    5. Never inflate scope — small fix asked, small fix delivered.
    6. Never claim done when not verified done.
    7. Never run commands meant for a remote machine.
+   8. Never push directly to `dev`, `release/*`, `main` or `master` — those branches change only through a PR from a feature branch, and never by force-push. On a branch's first push use `git push -u origin <branch>:<branch>`: branching off a remote branch leaves upstream pointing at the source (e.g. `origin/dev`), so a bare `git push` could otherwise target it. Before any history rewrite, check whether the branch was already merged and deleted — after a fast-forward merge the shared branch equals the old branch head, so "rewriting my branch" becomes a force-push of `dev`.
+   9. When resolve a problem or fix bug
+      - never assume the root cause is what the user diagnosed. Always verify against the code and system.
+      - never change logic or behavior unless the request explicitly asks for it. Always make the minimal fix to resolve the problem.
+      - never claim the problem is fixed until you have verified it against the system and the user.
+      - never claim the problem is fixed until you have verified its effects are really lesser or gone. A fix may remove the error but leave the system in a worse state (e.g. a silent failure, a new error, or a new performance problem).
 
 ## Base workflow
    1. **Virtual resource first.** When try to run a command, always try to use the virtual environment first. If the command fails, then try to run it in the local environment. This ensures that we are always using the correct dependencies and configurations.
