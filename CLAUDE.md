@@ -7,6 +7,7 @@
    4. Always ask for approval before implementing a change.
    5. Always verify your work against the full approved plan before claiming done.
    6. Always cut a feature branch from the freshly fetched remote base, and make it track its own remote branch — never the base: `git fetch origin && git switch -c <branch> --no-track origin/<base>`, then `git push -u origin <branch>:<branch>` on the first push. Never branch off a local `dev`/`main`: those go stale (a local `dev` can sit commits behind its remote while you work). Without `--no-track` the new branch inherits `origin/<base>` as upstream, so `git status` reports ahead/behind against the base and the branch never tracks itself. Verify before the first commit: `git status -sb` and `git config branch.<branch>.merge` must name `refs/heads/<branch>`.
+   7. Always remember to clear the worktree after the work finished, always get confirm before final delete, otherwise only remind user to delete the worktree.
 
 ## Red lines (never do)
    1. Never implement before an explicit approval token.
