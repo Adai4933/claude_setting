@@ -57,16 +57,18 @@
          - "Add validation" → write failing tests for invalid input, make pass
          - "Fix bug" → write reproducing test, make pass
          - "Refactor X" → tests green before and after
-      9. **CHANGELOG.md per PR** (not per commit). Create if missing. Include: features, bugfixes, DB/architecture/public-API/path changes, date, references to similar past entries. Summarize, don't append — combine related entries into one.
-      10. **Version bump per PR** (VERSION file first, if no VERSION file, then package.json/pyproject.toml). SemVer: patch=minor fix, minor=feature, major=breaking.
-      11. **Test before delivery.** Errors → fix and explain.
-      12. **Code review** Self-review first, then peer review. Address all feedback. If you disagree, explain why and ask for resolution.
-      13. **Additive only.** New features extend; existing behavior, workflows, and API contracts stay identical unless the change request names them. Fixing types/lint/perf never changes logic or return values.
-      14. **Verify against live system.** Facts about DB/API/schema come from querying the real system (or asking user to), not from stale files or assumption.
-      15. **Done = verified done.** Before reporting completion, re-check own work against the full approved plan (every step, every location). Partial delivery reported as partial.
-      16. **All artifacts inside the project tree.** Never write generated files to /tmp or outside the project folder. Generated files not added to git unless asked.
-      17. **Remote target protocol.** When the target machine is not this one, output commands for user to run and wait for pasted results; don't run locally.
-      18. **Infra hygiene.** Preserve existing environment conditionals (e.g. USE_CN mirror logic) in any fix. Fallbacks configurable, never hardcoded URLs. Secrets gitignored with .example files. DB changes ship with revert SQL in docs, doc name with change version. Temp/mock/test scaffolding kept isolated and removed when feature lands.
-      19. **Pasted error log = fix request.** Locate root cause (verify user's diagnosis against code if given) → minimal fix, no logic change → run checks → confirm the error is actually gone before reporting fixed.
-      20. **Defect punch-list.** Numbered/semicolon defect list → fix every item, verify each, report per-item status. No partial silent delivery.
-      21. **Bulk data ops.** Dry-run one row/item first, user verifies result, then full run.
+      9. **Migration SQL scripts** (if any) must be idempotent, reversible, and tested against a live system. Include a revert script in the docs with the same version number.
+      10. **Migration SQL performance** When a migration need to be done in an alive service, need to consider the impact to run the migration without stopping services. Should not block or have heavy load to service, and could be done in batches. If the migration is heavy, need to discuss with the team and get approval before implementing.
+      11. **CHANGELOG.md per PR** (not per commit). Create if missing. Include: features, bugfixes, DB/architecture/public-API/path changes, date, references to similar past entries. Summarize, don't append — combine related entries into one.
+      12. **Version bump per PR** (VERSION file first, if no VERSION file, then package.json/pyproject.toml). SemVer: patch=minor fix, minor=feature, major=breaking.
+      13. **Test before delivery.** Errors → fix and explain.
+      14. **Code review** Self-review first, then peer review. Address all feedback. If you disagree, explain why and ask for resolution.
+      15. **Additive only.** New features extend; existing behavior, workflows, and API contracts stay identical unless the change request names them. Fixing types/lint/perf never changes logic or return values.
+      16. **Verify against live system.** Facts about DB/API/schema come from querying the real system (or asking user to), not from stale files or assumption.
+      17. **Done = verified done.** Before reporting completion, re-check own work against the full approved plan (every step, every location). Partial delivery reported as partial.
+      18. **All artifacts inside the project tree.** Never write generated files to /tmp or outside the project folder. Generated files not added to git unless asked.
+      19. **Remote target protocol.** When the target machine is not this one, output commands for user to run and wait for pasted results; don't run locally.
+      20. **Infra hygiene.** Preserve existing environment conditionals (e.g. USE_CN mirror logic) in any fix. Fallbacks configurable, never hardcoded URLs. Secrets gitignored with .example files. DB changes ship with revert SQL in docs, doc name with change version. Temp/mock/test scaffolding kept isolated and removed when feature lands.
+      21. **Pasted error log = fix request.** Locate root cause (verify user's diagnosis against code if given) → minimal fix, no logic change → run checks → confirm the error is actually gone before reporting fixed.
+      22. **Defect punch-list.** Numbered/semicolon defect list → fix every item, verify each, report per-item status. No partial silent delivery.
+      23. **Bulk data ops.** Dry-run one row/item first, user verifies result, then full run.
